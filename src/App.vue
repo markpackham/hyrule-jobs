@@ -1,13 +1,37 @@
 <template>
-  <div class="app">Hello Hyrule</div>
+  <div class="app">
+    <p>{{ name }} - {{ age }}</p>
+    <button @click="changeName('Zelda')">Change name</button>
+    <button @click="changeAge('100')">Change age</button>
+  </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, reactive, toRefs } from "vue";
 
 export default defineComponent({
   name: "App",
   components: {},
+  setup() {
+    const state = reactive({
+      name: "Link",
+      age: 25 as string | number,
+    });
+
+    state.name = "Timmy";
+
+    return { ...toRefs(state) };
+  },
+  methods: {
+    changeName(name: string) {
+      this.name = name;
+      return name;
+    },
+    changeAge(age: number | string) {
+      this.age = age;
+      return age;
+    },
+  },
 });
 </script>
 
