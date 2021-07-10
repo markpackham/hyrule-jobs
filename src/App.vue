@@ -1,6 +1,10 @@
 <template>
   <div class="app">
     <header>
+      <div class="title">
+        <img src="./assets/heart.svg" alt="Site Logo Heart" />
+        <h1>Hyrule Jobs</h1>
+      </div>
       <div class="order">
         <button @click="handleClick('title')">Order By Title</button>
         <button @click="handleClick('salary')">Order By Salary</button>
